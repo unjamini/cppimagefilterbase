@@ -26,6 +26,7 @@ public:
     ~png_toolkit();
     bool load( std::string const &pictureName );
     bool save( std::string const &pictureName );
+    void halfRedFilter(void);
     image_data getPixelData( void ) const;
 
 private:

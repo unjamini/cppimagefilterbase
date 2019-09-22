@@ -11,7 +11,8 @@ int main( int argc, char *argv[] )
             throw "Not enough arguments";
 
         png_toolkit studTool;
-        studTool.load(argv[1]);
+        std::cout << studTool.load(argv[1]);
+        studTool.halfRedFilter();
         studTool.save(argv[2]);
 
     }

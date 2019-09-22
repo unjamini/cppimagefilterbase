@@ -28,6 +28,18 @@ bool png_toolkit::save( const std::string &pictureName )
 }
 
 
+void png_toolkit::halfRedFilter()
+{
+    for (int i = imgData.h / 2; i < imgData.h ; i++) {
+            for (int j = 0; j < imgData.w; j++) {
+                for (int channel = 0; channel < imgData.compPerPixel; channel++) {
+                imgData.pixels[(i * imgData.w + j) * imgData.compPerPixel  + channel] = channel? 0x00 : 0xFF;
+            }
+        }
+    }
+
+}
+
 image_data png_toolkit::getPixelData( void ) const
 {
     return imgData;
