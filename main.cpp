@@ -1,4 +1,5 @@
 #include <iostream>
+#include "filterSeq.h"
 #include "png_toolkit.h"
 
 int main( int argc, char *argv[] )
@@ -7,13 +8,20 @@ int main( int argc, char *argv[] )
     // toolkit near test images!
     try
     {
-        if (argc != 3)
-            throw "Not enough arguments";
+        if (argc != 4)
+        {
+            std::cout << "Not enough arguments" << std::endl;
+            return 1;
+        }
 
-        png_toolkit studTool;
-        std::cout << studTool.load(argv[1]);
-        studTool.halfRedFilter();
-        studTool.save(argv[2]);
+        std::string configName = argv[1];
+        std::string fileIn = argv[2];
+        std::string fileOut = argv[3];
+        png_image img;
+        img.load(fileIn);
+        FilterSeq fltSeq(configName);
+        fltSeq.applyFilters(img);
+        img.save(fileOut);
 
     }
     catch (const char *str)

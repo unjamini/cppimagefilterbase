@@ -6,11 +6,37 @@
 
 #IncludeRegexTransform: 
 
-/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/png_toolkit.cpp
-array
+/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/FilterUnit.cpp
+iostream
 -
-stb_image_write.h
-/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/stb_image_write.h
+FilterUnit.h
+/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/FilterUnit.h
+
+/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/FilterUnit.h
+png_toolkit.h
+/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/png_toolkit.h
+math.h
+-
+memory.h
+-
+string.h
+-
+
+/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/filterSeq.h
+string
+-
+vector
+-
+png_toolkit.h
+/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/png_toolkit.h
+FilterUnit.h
+/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/FilterUnit.h
+
+/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/main.cpp
+iostream
+-
+filterSeq.h
+/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/filterSeq.h
 png_toolkit.h
 /Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/png_toolkit.h
 
@@ -52,21 +78,5 @@ emmintrin.h
 intrin.h
 -
 arm_neon.h
--
-
-/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/stb_image_write.h
-stdlib.h
--
-stdio.h
--
-stdarg.h
--
-stdlib.h
--
-string.h
--
-math.h
--
-assert.h
 -
 

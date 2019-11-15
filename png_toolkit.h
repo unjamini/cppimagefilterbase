@@ -13,7 +13,14 @@ struct image_data
     int compPerPixel;
 };
 
-class png_toolkit
+struct image_intn
+{
+    int *intn_val;
+    int w, h;
+};
+
+
+class png_image
 {
 public:
     enum class Error {
@@ -22,11 +29,11 @@ public:
         Ok
     };
 
-    png_toolkit();
-    ~png_toolkit();
+    png_image();
+    ~png_image();
     bool load( std::string const &pictureName );
     bool save( std::string const &pictureName );
-    void halfRedFilter(void);
+    void set_data(image_data newData);
     image_data getPixelData( void ) const;
 
 private:

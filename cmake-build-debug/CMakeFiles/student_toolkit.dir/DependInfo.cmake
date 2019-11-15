@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/FilterUnit.cpp" "/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/cmake-build-debug/CMakeFiles/student_toolkit.dir/FilterUnit.cpp.o"
+  "/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/filterSeq.cpp" "/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/cmake-build-debug/CMakeFiles/student_toolkit.dir/filterSeq.cpp.o"
   "/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/main.cpp" "/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/cmake-build-debug/CMakeFiles/student_toolkit.dir/main.cpp.o"
   "/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/png_toolkit.cpp" "/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/cmake-build-debug/CMakeFiles/student_toolkit.dir/png_toolkit.cpp.o"
   )

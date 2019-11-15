@@ -82,6 +82,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/FilterUnit.cpp">
+			<Option target="student_toolkit"/>
+		</Unit>
+		<Unit filename="/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/FilterUnit.h">
+			<Option target="student_toolkit"/>
+		</Unit>
+		<Unit filename="/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/filterSeq.cpp">
+			<Option target="student_toolkit"/>
+		</Unit>
+		<Unit filename="/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/filterSeq.h">
+			<Option target="student_toolkit"/>
+		</Unit>
 		<Unit filename="/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/main.cpp">
 			<Option target="student_toolkit"/>
 		</Unit>
