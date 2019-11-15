@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/FilterUnit.cpp
-iostream
--
-FilterUnit.h
-/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/FilterUnit.h
-
 /Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/FilterUnit.h
 png_toolkit.h
 /Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/png_toolkit.h
@@ -21,6 +15,18 @@ memory.h
 -
 string.h
 -
+
+/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/filterSeq.cpp
+fstream
+-
+iostream
+-
+sstream
+-
+filterSeq.h
+/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/filterSeq.h
+png_toolkit.h
+/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/png_toolkit.h
 
 /Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/filterSeq.h
 string
@@ -35,10 +41,10 @@ FilterUnit.h
 /Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/main.cpp
 iostream
 -
-filterSeq.h
-/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/filterSeq.h
 png_toolkit.h
 /Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/png_toolkit.h
+filterSeq.h
+/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/filterSeq.h
 
 /Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/png_toolkit.h
 string

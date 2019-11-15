@@ -48,9 +48,6 @@ void FilterSeq::parseConfig(std::string const &configName)
                 FilterUnit* flt = new BlurFilter(stoi(parsed_line[1]), stoi(parsed_line[3]), stoi(parsed_line[2]), stoi(parsed_line[4]));
                 filterSeq.push_back(flt);
             }
-            else {
-                std::cout << "Wrong filter name!" << std::endl;
-            }
         }
         confStream.close();
     }
