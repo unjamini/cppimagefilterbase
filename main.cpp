@@ -12,14 +12,11 @@ int main( int argc, char *argv[] )
         if (argc != 4)
             throw "Not enough arguments";
 
-        std::string configName = argv[1];
-        std::string fileIn = argv[2];
-        std::string fileOut = argv[3];
         png_image img;
-        img.load(fileIn);
-        FilterSeq fltSeq(configName);
+        img.load(argv[2]);
+        FilterSeq fltSeq(argv[1]);
         fltSeq.applyFilters(img);
-        img.save(fileOut);
+        img.save(argv[3]);
     }
     catch (const char *str)
     {
