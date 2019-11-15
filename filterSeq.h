@@ -13,6 +13,7 @@ class FilterSeq
 public:
     explicit FilterSeq(std::string config) ;
     void applyFilters(png_image& pic);
+    ~FilterSeq();
 
 private:
     void parseConfig(std::string const &configName);

@@ -7,14 +7,15 @@
 
 
 #include "png_toolkit.h"
-#include <math.h>
+#include <cmath>
 #include <memory.h>
-#include <string.h>
+#include <cstring>
 
 class FilterUnit {
 public:
     FilterUnit(int top, int bottom, int left, int right);
-    virtual void applyFilter(image_data imgData) = 0;
+    virtual void applyFilter(image_data& imgData) = 0;
+    virtual ~FilterUnit();
 protected:
     int top_p;
     int bottom_p;
@@ -26,7 +27,7 @@ protected:
 class RedFilter: public FilterUnit{
 public:
     RedFilter(int top, int bottom, int left, int right) : FilterUnit(top, bottom, left, right)  {};
-    void applyFilter(image_data imgData) override;
+    void applyFilter(image_data& imgData) override;
 };
 
 
@@ -34,14 +35,14 @@ public:
 class BlurFilter: public FilterUnit{
 public:
     BlurFilter(int top, int bottom, int left, int right) : FilterUnit(top, bottom, left, right)  {};
-    void applyFilter(image_data imgData) override;
+    void applyFilter(image_data& imgData) override;
 };
 
 
 class ThresholdFilter: public FilterUnit{
 public:
     ThresholdFilter(int top, int bottom, int left, int right) : FilterUnit(top, bottom, left, right)  {};
-    void applyFilter(image_data imgData) override;
+    void applyFilter(image_data& imgData) override;
 };
 
 
@@ -49,7 +50,7 @@ public:
 class EdgeFilter: public FilterUnit{
 public:
     EdgeFilter(int top, int bottom, int left, int right) : FilterUnit(top, bottom, left, right)  {};
-    void applyFilter(image_data imgData) override;
+    void applyFilter(image_data& imgData) override;
 };
 
 #endif //STUDENT_TOOLKIT_FILTERUNIT_H

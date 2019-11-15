@@ -6,6 +6,7 @@
 //#include <memory>
 #include "stb_image.h"
 
+
 struct image_data
 {
     stbi_uc *pixels;
@@ -13,22 +14,10 @@ struct image_data
     int compPerPixel;
 };
 
-struct image_intn
-{
-    int *intn_val;
-    int w, h;
-};
-
 
 class png_image
 {
 public:
-    enum class Error {
-        WrongSize,
-        WrongFormat,
-        Ok
-    };
-
     png_image();
     ~png_image();
     bool load( std::string const &pictureName );

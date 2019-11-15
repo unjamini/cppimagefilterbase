@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/main.cpp" "/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/cmake-build-debug/CMakeFiles/student_toolkit.dir/main.cpp.o"
   "/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/png_toolkit.cpp" "/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/cmake-build-debug/CMakeFiles/student_toolkit.dir/png_toolkit.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "Clang")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

@@ -64,3 +64,10 @@ void FilterSeq::applyFilters(png_image &pic)
     }
     pic.set_data(imgData);
 }
+
+FilterSeq::~FilterSeq()
+{
+    for (FilterUnit* filter: filterSeq) {
+        delete filter;
+    }
+}
