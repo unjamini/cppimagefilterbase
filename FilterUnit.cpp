@@ -51,8 +51,8 @@ void RedFilter::applyFilter(image_data imgData)
 {
     int top = top_p? imgData.h / top_p : 0;
     int bottom = bottom_p? imgData.h / bottom_p : 0;
-    int left = left_p? imgData.h / left_p : 0;
-    int right = right_p? imgData.h / right_p : 0;
+    int left = left_p? imgData.w / left_p : 0;
+    int right = right_p? imgData.w / right_p : 0;
     for (int i = top; i < bottom ; ++i) {
         for (int j = left; j < right; ++j) {
             for (int channel = 0; channel < imgData.compPerPixel; ++channel) {
@@ -110,8 +110,8 @@ void BlurFilter::applyFilter(image_data imgData)
 {
     int top = top_p? imgData.h / top_p : 0;
     int bottom = bottom_p? imgData.h / bottom_p : 0;
-    int left = left_p? imgData.h / left_p : 0;
-    int right = right_p? imgData.h / right_p : 0;
+    int left = left_p? imgData.w / left_p : 0;
+    int right = right_p? imgData.w / right_p : 0;
     auto* nPixels = new stbi_uc[imgData.h * imgData.w * imgData.compPerPixel];
     memcpy(nPixels, imgData.pixels, imgData.h * imgData.w * imgData.compPerPixel);
     for (int channel = 0; channel < 3; ++channel) {

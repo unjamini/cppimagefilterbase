@@ -11,7 +11,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4371ef4b-2d49-4832-be8a-3868a2b50e79" name="Default Changelist" comment="" />
+    <list default="true" id="4371ef4b-2d49-4832-be8a-3868a2b50e79" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +106,7 @@
       <workItem from="1573633036466" duration="167000" />
       <workItem from="1573644310940" duration="2305000" />
       <workItem from="1573646783100" duration="3206000" />
-      <workItem from="1573811626534" duration="2947000" />
+      <workItem from="1573811626534" duration="3221000" />
     </task>
     <task id="LOCAL-00001" summary="1 version">
       <created>1569154700456</created>
@@ -148,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573814440260</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="&#10;11">
+      <created>1573814865429</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1573814865429</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +190,8 @@
     <MESSAGE value="1 version" />
     <MESSAGE value="1" />
     <MESSAGE value="100" />
-    <option name="LAST_COMMIT_MESSAGE" value="100" />
+    <MESSAGE value="&#10;11" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;11" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
