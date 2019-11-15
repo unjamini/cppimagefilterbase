@@ -49,8 +49,12 @@ FilterUnit::FilterUnit(int top, int bottom, int left, int right)
 
 void RedFilter::applyFilter(image_data imgData)
 {
-    for (int i = top_p; i < bottom_p ; ++i) {
-        for (int j = left_p; j < right_p; ++j) {
+    int top = top_p? imgData.h / top_p : 0;
+    int bottom = bottom_p? imgData.h / bottom_p : 0;
+    int left = left_p? imgData.h / left_p : 0;
+    int right = right_p? imgData.h / right_p : 0;
+    for (int i = top; i < bottom ; ++i) {
+        for (int j = left; j < right; ++j) {
             for (int channel = 0; channel < imgData.compPerPixel; ++channel) {
                 imgData.pixels[(i * imgData.w + j) * imgData.compPerPixel  + channel] = (channel && channel != 3)? 0x00 : 0xFF;
             }
