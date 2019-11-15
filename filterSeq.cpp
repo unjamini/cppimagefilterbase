@@ -51,9 +51,6 @@ void FilterSeq::parseConfig(std::string const &configName)
         }
         confStream.close();
     }
-    else {
-        std::cout << "Unable to open config file."  << configName << std::endl;
-    }
 }
 
 

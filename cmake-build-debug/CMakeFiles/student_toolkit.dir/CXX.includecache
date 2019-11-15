@@ -38,14 +38,6 @@ png_toolkit.h
 FilterUnit.h
 /Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/FilterUnit.h
 
-/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/main.cpp
-iostream
--
-png_toolkit.h
-/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/png_toolkit.h
-filterSeq.h
-/Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/filterSeq.h
-
 /Users/evgenia/Desktop/PRG/AdvancedC++/cppimagefilterbase/png_toolkit.h
 string
 -
