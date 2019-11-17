@@ -33,6 +33,8 @@ void FilterSeq::parseConfig(std::string const &configName)
                 std::istringstream iss(line);
                 std::vector<std::string> parsed_line((std::istream_iterator<std::string>(iss)),
                                                      std::istream_iterator<std::string>());
+                if (parsed_line.size() < 5)
+                    continue;
                 if (parsed_line[0] == "Red") {
                     FilterUnit* flt = new RedFilter(stoi(parsed_line[1]), stoi(parsed_line[3]), stoi(parsed_line[2]), stoi(parsed_line[4]));
                     filterSeq.push_back(flt);
