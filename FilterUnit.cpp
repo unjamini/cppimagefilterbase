@@ -56,7 +56,10 @@ int sum3_3 (stbi_uc const* pixels, int x, int y, image_data& imgData, int channe
             result += coeff * pixels[((x + i) * imgData.w + y + j) * imgData.compPerPixel  + channel];
         }
     }
-    return result / 9;
+    if (central_w == border_w)
+        return result / 9;
+    else
+        return fmin(255, fmax(result, 0));
 }
 
 
@@ -128,6 +131,7 @@ void BlurFilter::applyFilter(image_data& imgData)
     delete[] nPixels;
 }
 
+
 void ThresProcess(int top, int left, image_data& imgData, int zone_bottom, int zone_right)
 {
     std::vector<stbi_uc*> pixel_v;
@@ -182,13 +186,13 @@ void EdgeFilter::applyFilter(image_data& imgData)
         //заполняем внутренние
         for (int i = top; i < bottom - 2; ++i) {
             for (int j = left; j < right - 2; ++j) {
-                imgData.pixels[((i + 1) * imgData.w + j + 1) * imgData.compPerPixel  + channel] = 9 * sum3_3(nPixels, i, j, imgData, channel, 9, -1);
+                imgData.pixels[((i + 1) * imgData.w + j + 1) * imgData.compPerPixel  + channel] = sum3_3(nPixels, i, j, imgData, channel, 9, -1);
             }
         }
 
         //заполняем края (4 краевых пикселя)
         int current = (top * imgData.w + left) * imgData.compPerPixel  + channel;
-        imgData.pixels[current] = 10 * nPixels[current] - 4 *sum2_2(nPixels, top, left, imgData, channel);
+        imgData.pixels[current] = 10 * nPixels[current] - 4 * sum2_2(nPixels, top, left, imgData, channel);
         current = ((bottom - 1) * imgData.w + left) * imgData.compPerPixel  + channel;
         imgData.pixels[current] = 10 * nPixels[current] - 4 * sum2_2(nPixels, bottom - 2, left, imgData, channel);
         current = (top * imgData.w + right - 1) * imgData.compPerPixel  + channel;
