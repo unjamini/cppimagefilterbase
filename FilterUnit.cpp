@@ -137,10 +137,10 @@ void ThresProcess(int top, int left, image_data& imgData, int zone_bottom, int z
             pixel_v.push_back(&pixels[(i * imgData.w + j) * imgData.compPerPixel]);
         }
     }
-    /*std::sort(pixel_v.begin(), pixel_v.end(), [](const stbi_uc* a, const stbi_uc* b) -> bool
+    std::sort(pixel_v.begin(), pixel_v.end(), [](const stbi_uc* a, const stbi_uc* b) -> bool
     {
         return *a < *b;
-    });*/
+    });
     for (int i = 0; i < int(pixel_v.size() - 13); i++) {
         *pixel_v[i] = 0;
     }
