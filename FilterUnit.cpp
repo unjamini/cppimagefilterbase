@@ -67,7 +67,7 @@ int sum2_2 (stbi_uc const* pixels, int x, int y, image_data& imgData, int channe
             result += pixels[((x + i) * imgData.w + y + j) * imgData.compPerPixel  + channel];
         }
     }
-    return result / 4;
+    return result / 9;
 }
 
 
@@ -78,7 +78,7 @@ int sum2_3 (stbi_uc const* pixels, int x, int y, image_data& imgData, int channe
             result += pixels[((x + i) * imgData.w + y + j) * imgData.compPerPixel  + channel];
         }
     }
-    return result / 6;
+    return result / 9;
 }
 
 
@@ -89,7 +89,7 @@ int sum3_2 (stbi_uc const* pixels, int x, int y, image_data& imgData, int channe
             result += pixels[((x + i) * imgData.w + y + j) * imgData.compPerPixel  + channel];
         }
     }
-    return result / 6;
+    return result / 9;
 }
 
 void BlurFilter::applyFilter(image_data& imgData)
