@@ -192,27 +192,27 @@ void EdgeFilter::applyFilter(image_data& imgData)
 
         //заполняем края (4 краевых пикселя)
         int current = (top * imgData.w + left) * imgData.compPerPixel  + channel;
-        imgData.pixels[current] = 10 * nPixels[current] - 4 * sum2_2(nPixels, top, left, imgData, channel);
+        imgData.pixels[current] = fmax(0, fmin(255, 10 * nPixels[current] - 9 * sum2_2(nPixels, top, left, imgData, channel)));
         current = ((bottom - 1) * imgData.w + left) * imgData.compPerPixel  + channel;
-        imgData.pixels[current] = 10 * nPixels[current] - 4 * sum2_2(nPixels, bottom - 2, left, imgData, channel);
+        imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - 9 * sum2_2(nPixels, bottom - 2, left, imgData, channel)));
         current = (top * imgData.w + right - 1) * imgData.compPerPixel  + channel;
-        imgData.pixels[current] = 10 * nPixels[current] - 4 * sum2_2(nPixels, top, right - 2, imgData, channel);
+        imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - 9 * sum2_2(nPixels, top, right - 2, imgData, channel)));
         current = ((bottom - 1) * imgData.w + right - 1) * imgData.compPerPixel  + channel;
-        imgData.pixels[current] = 10 * nPixels[current] - 4 * sum2_2(nPixels, bottom - 2, right - 2, imgData, channel);
+        imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - 9 * sum2_2(nPixels, bottom - 2, right - 2, imgData, channel)));
 
         //верхняя и нижняя полоса
         for (int j = left + 1; j < right - 1; j++){
             current = (top * imgData.w + j) * imgData.compPerPixel  + channel;
-            imgData.pixels[current] = 10 * nPixels[current] - 6 * sum2_3(nPixels, top, j - 1, imgData, channel);
+            imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - 9 * sum2_3(nPixels, top, j - 1, imgData, channel)));
             current = ((bottom - 1) * imgData.w + j) * imgData.compPerPixel  + channel;
-            imgData.pixels[current] = 10 * nPixels[current] - 6 * sum2_3(nPixels, bottom - 2, j - 1, imgData, channel);
+            imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - 9 * sum2_3(nPixels, bottom - 2, j - 1, imgData, channel)));
         }
         //левая и правая полоса
         for (int i = top + 1; i < bottom - 1; i++ ) {
             current = (i * imgData.w + left) * imgData.compPerPixel  + channel;
-            imgData.pixels[current] = 10 * nPixels[current] - 6 * sum3_2(nPixels, i - 1, left, imgData, channel);
+            imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - 9 * sum3_2(nPixels, i - 1, left, imgData, channel)));
             current = (i * imgData.w + right - 1) * imgData.compPerPixel  + channel;
-            imgData.pixels[current] = 10 * nPixels[current] - 6 * sum3_2(nPixels, i - 1, right - 2, imgData, channel);
+            imgData.pixels[current] = fmax(0, fmin(255, 10 * nPixels[current] - 9 * sum3_2(nPixels, i - 1, right - 2, imgData, channel)));
         }
     }
     delete[] nPixels;
