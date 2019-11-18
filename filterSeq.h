@@ -4,6 +4,7 @@
 
 #include <string>
 #include <vector>
+#include <iterator>
 #include "png_toolkit.h"
 #include "FilterUnit.h"
 
