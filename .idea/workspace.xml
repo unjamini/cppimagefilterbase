@@ -13,8 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4371ef4b-2d49-4832-be8a-3868a2b50e79" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/student_toolkit.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/student_toolkit.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/student_toolkit" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/student_toolkit" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FilterUnit.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/FilterUnit.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FilterUnit.h" beforeDir="false" afterPath="$PROJECT_DIR$/FilterUnit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filterSeq.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/filterSeq.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,10 +36,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
   </component>
   <component name="ProjectId" id="1S8sZRDywaMEtQ0aiY7DSH9rQhX" />
   <component name="PropertiesComponent">
@@ -109,7 +106,8 @@
       <workItem from="1573644310940" duration="2305000" />
       <workItem from="1573646783100" duration="3206000" />
       <workItem from="1573811626534" duration="13992000" />
-      <workItem from="1573983380841" duration="532000" />
+      <workItem from="1573983380841" duration="979000" />
+      <workItem from="1574094187821" duration="218000" />
     </task>
     <task id="LOCAL-00001" summary="1 version">
       <created>1569154700456</created>
@@ -188,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573983510906</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="&#10;11">
+      <created>1573984097312</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1573984097313</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
