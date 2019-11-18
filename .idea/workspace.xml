@@ -11,11 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4371ef4b-2d49-4832-be8a-3868a2b50e79" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FilterUnit.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/FilterUnit.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/student_toolkit" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/student_toolkit" afterDir="false" />
-    </list>
+    <list default="true" id="4371ef4b-2d49-4832-be8a-3868a2b50e79" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +103,7 @@
       <workItem from="1573811626534" duration="13992000" />
       <workItem from="1573983380841" duration="979000" />
       <workItem from="1574094187821" duration="415000" />
-      <workItem from="1574101618159" duration="1365000" />
+      <workItem from="1574101618159" duration="1614000" />
     </task>
     <task id="LOCAL-00001" summary="1 version">
       <created>1569154700456</created>
@@ -221,7 +217,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574102152058</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="&#10;new">
+      <created>1574103085920</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1574103085920</updated>
+    </task>
+    <task id="LOCAL-00018" summary="&#10;new">
+      <created>1574103302197</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1574103302197</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

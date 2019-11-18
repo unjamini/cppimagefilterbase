@@ -210,9 +210,9 @@ void EdgeFilter::applyFilter(image_data& imgData)
         //левая и правая полоса
         for (int i = top + 1; i < bottom - 1; i++ ) {
             current = (i * imgData.w + left) * imgData.compPerPixel  + channel;
-            imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - 9 * sum3_2(nPixels, i - 1, left, imgData, channel)));
+            //imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - 9 * sum3_2(nPixels, i - 1, left, imgData, channel)));
             current = (i * imgData.w + right - 1) * imgData.compPerPixel  + channel;
-            imgData.pixels[current] = fmax(0, fmin(255, 10 * nPixels[current] - 9 * sum3_2(nPixels, i - 1, right - 2, imgData, channel)));
+            //imgData.pixels[current] = fmax(0, fmin(255, 10 * nPixels[current] - 9 * sum3_2(nPixels, i - 1, right - 2, imgData, channel)));
         }
     }
     delete[] nPixels;
