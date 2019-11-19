@@ -13,7 +13,7 @@ void BW (image_data& imgData, int top, int bottom, int left, int right) {
     for (int i = top; i < bottom ; ++i) {
         for (int j = left; j < right; ++j) {
             int coord = (i * imgData.w + j) * imgData.compPerPixel;
-            int mean = floor(0.3 * imgData.pixels[coord] + 0.6 * imgData.pixels[coord + 1] + 0.1 * imgData.pixels[coord + 2]);
+            int mean = floor((3 * imgData.pixels[coord] + 6 * imgData.pixels[coord + 1] + imgData.pixels[coord + 2]) / 10);
             imgData.pixels[coord] = imgData.pixels[coord + 1] = imgData.pixels[coord + 2] = mean;
         }
     }
@@ -210,9 +210,10 @@ void EdgeFilter::applyFilter(image_data& imgData)
         //левая и правая полоса
         for (int i = top + 1; i < bottom - 1; i++ ) {
             current = (i * imgData.w + left) * imgData.compPerPixel  + channel;
+            //точно верно
             imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - 9 * sum3_2(nPixels, i - 1, left, imgData, channel)));
             current = (i * imgData.w + right - 1) * imgData.compPerPixel  + channel;
-            //imgData.pixels[current] = fmax(0, fmin(255, 10 * nPixels[current] - 9 * sum3_2(nPixels, i - 1, right - 2, imgData, channel)));
+            imgData.pixels[current] = fmax(0, fmin(255, 10 * nPixels[current] - 9 * sum3_2(nPixels, i - 1, right - 2, imgData, channel)));
         }
     }
     delete[] nPixels;
