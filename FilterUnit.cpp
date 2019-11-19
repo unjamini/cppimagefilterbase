@@ -107,7 +107,7 @@ void ThresProcess(Zone& zone, int x, int y, image_data& imgData, int kern_size =
         return a < b;
     });
     int med = pixel_v[pixel_v.size() / 2];
-    if (med > pixels[(x * imgData.w + y) * imgData.compPerPixel]) {
+    if (med >= pixels[(x * imgData.w + y) * imgData.compPerPixel]) {
         pixels[(x * imgData.w + y) * imgData.compPerPixel + 1] = pixels[(x * imgData.w + y) * imgData.compPerPixel + 2] = pixels[(x * imgData.w + y) * imgData.compPerPixel] = 0;
     }
 }
