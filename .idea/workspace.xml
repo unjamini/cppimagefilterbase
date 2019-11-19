@@ -14,6 +14,7 @@
     <list default="true" id="4371ef4b-2d49-4832-be8a-3868a2b50e79" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FilterUnit.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/FilterUnit.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FilterUnit.h" beforeDir="false" afterPath="$PROJECT_DIR$/FilterUnit.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/student_toolkit" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/student_toolkit" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -109,7 +110,8 @@
       <workItem from="1574094187821" duration="415000" />
       <workItem from="1574101618159" duration="2467000" />
       <workItem from="1574183917718" duration="512000" />
-      <workItem from="1574187905456" duration="1216000" />
+      <workItem from="1574187905456" duration="1311000" />
+      <workItem from="1574190706090" duration="1331000" />
     </task>
     <task id="LOCAL-00001" summary="1 version">
       <created>1569154700456</created>
@@ -265,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574187976829</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="&#10;new">
+      <created>1574189227374</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1574189227374</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,9 +315,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>9</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/FilterUnit.cpp</url>
+          <line>54</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

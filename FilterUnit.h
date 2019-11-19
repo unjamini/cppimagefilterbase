@@ -13,6 +13,15 @@
 #include <algorithm>
 
 
+struct Zone {
+    int top;
+    int bottom;
+    int left;
+    int right;
+};
+
+
+
 class FilterUnit {
 public:
     FilterUnit(int top, int bottom, int left, int right);

@@ -9,6 +9,7 @@
 
 
 
+
 void BW (image_data& imgData, int top, int bottom, int left, int right) {
     for (int i = top; i < bottom ; ++i) {
         for (int j = left; j < right; ++j) {
@@ -48,53 +49,22 @@ void RedFilter::applyFilter(image_data& imgData)
 
 }
 
-int sum3_3 (stbi_uc const* pixels, int x, int y, image_data& imgData, int channel, int central_w = 1, int border_w = 1) {
+int sum3_3 (struct Zone& zone, stbi_uc const* pixels, int x, int y, image_data& imgData, int channel, int central_w = 1, int border_w = 1, int kern_size=3) {
+    int border = kern_size / 2;
     int result = 0;
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            int coeff = (i == 1 && j == 1)? central_w : border_w;
-            result += coeff * pixels[((x + i) * imgData.w + y + j) * imgData.compPerPixel  + channel];
+    for (int i = x - border; i <= x + border; i++) {
+        for (int j = y - border; j <= y + border; j++) {
+            if (i < zone.top || i >= zone.bottom || j < zone.left || j >= zone.right)
+                continue;
+            int coeff = (i == x && j == y)? central_w : border_w;
+            result += coeff * pixels[(i * imgData.w + j) * imgData.compPerPixel  + channel];
         }
     }
-    if (central_w == border_w)
-        return result / 9;
-    else
-        return fmin(255, fmax(result, 0));
+    return result;
 }
 
 
-int sum2_2 (stbi_uc const* pixels, int x, int y, image_data& imgData, int channel) {
-    int result = 0;
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < 2; j++) {
-            result += pixels[((x + i) * imgData.w + y + j) * imgData.compPerPixel  + channel];
-        }
-    }
-    return result / 1;
-}
 
-
-int sum2_3 (stbi_uc const* pixels, int x, int y, image_data& imgData, int channel) {
-    int result = 0;
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < 3; j++) {
-            result += pixels[((x + i) * imgData.w + y + j) * imgData.compPerPixel  + channel];
-        }
-    }
-
-    return result / 1;
-}
-
-
-int sum3_2 (stbi_uc const* pixels, int x, int y, image_data& imgData, int channel) {
-    int result = 0;
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 2; j++) {
-            result += pixels[((x + i) * imgData.w + y + j) * imgData.compPerPixel  + channel];
-        }
-    }
-    return result / 1;
-}
 
 void BlurFilter::applyFilter(image_data& imgData)
 {
@@ -106,28 +76,11 @@ void BlurFilter::applyFilter(image_data& imgData)
     memcpy(nPixels, imgData.pixels, imgData.h * imgData.w * imgData.compPerPixel);
     for (int channel = 0; channel < 3; ++channel) {
         //заполняем внутренние
-        for (int i = top; i < bottom - 2; ++i) {
-            for (int j = left; j < right - 2; ++j) {
-                imgData.pixels[((i + 1) * imgData.w + j + 1) * imgData.compPerPixel  + channel] = sum3_3(nPixels, i, j, imgData, channel);
+        for (int i = top; i < bottom; ++i) {
+            for (int j = left; j < right; ++j) {
+                Zone zone = {top, bottom, left, right};
+                imgData.pixels[(i * imgData.w + j) * imgData.compPerPixel  + channel] = sum3_3(zone, nPixels, i, j, imgData, channel) / 9;
             }
-        }
-
-        //заполняем края (4 краевых пикселя)
-        imgData.pixels[(top * imgData.w + left) * imgData.compPerPixel  + channel] = sum2_2(nPixels, top, left, imgData, channel) / 9;
-        imgData.pixels[((bottom - 1) * imgData.w + left) * imgData.compPerPixel  + channel] = sum2_2(nPixels, bottom - 2, left, imgData, channel) / 9;
-        imgData.pixels[(top * imgData.w + right - 1) * imgData.compPerPixel  + channel] = sum2_2(nPixels, top, right - 2, imgData, channel)/ 9;
-        imgData.pixels[((bottom - 1) * imgData.w + right - 1) * imgData.compPerPixel  + channel] = sum2_2(nPixels, bottom - 2, right - 2, imgData, channel)/ 9;
-
-        //верхняя и нижняя полоса
-        for (int j = left + 1; j < right - 1; j++){
-            imgData.pixels[(top * imgData.w + j) * imgData.compPerPixel  + channel] = sum2_3(nPixels, top, j - 1, imgData, channel)/ 9;
-
-            imgData.pixels[((bottom - 1) * imgData.w + j) * imgData.compPerPixel  + channel] = sum2_3(nPixels, bottom - 2, j - 1, imgData, channel)/ 9;
-        }
-        //левая и правая полоса
-        for (int i = top + 1; i < bottom - 1; i++ ) {
-            imgData.pixels[(i * imgData.w + left) * imgData.compPerPixel  + channel] = sum3_2(nPixels, i - 1, left, imgData, channel)/ 9;
-            imgData.pixels[(i * imgData.w + right - 1) * imgData.compPerPixel  + channel] = sum3_2(nPixels, i - 1, right - 2, imgData, channel)/ 9;
         }
     }
     delete[] nPixels;
@@ -175,6 +128,8 @@ void ThresholdFilter::applyFilter(image_data& imgData)
     }
 }
 
+
+
 void EdgeFilter::applyFilter(image_data& imgData)
 {
     int top = top_p? imgData.h / top_p : 0;
@@ -186,39 +141,11 @@ void EdgeFilter::applyFilter(image_data& imgData)
     memcpy(nPixels, imgData.pixels, imgData.h * imgData.w * imgData.compPerPixel);
     for (int channel = 0; channel < 3; ++channel) {
         //заполняем внутренние
-        for (int i = top; i < bottom - 2; ++i) {
-            for (int j = left; j < right - 2; ++j) {
-                imgData.pixels[((i + 1) * imgData.w + j + 1) * imgData.compPerPixel  + channel] = sum3_3(nPixels, i, j, imgData, channel, 9, -1);
+        for (int i = top; i < bottom; ++i) {
+            for (int j = left; j < right; ++j) {
+                Zone zone = {top, bottom, left, right};
+                imgData.pixels[(i * imgData.w + j) * imgData.compPerPixel  + channel] = fmax(0, fmin(255, sum3_3(zone, nPixels, i, j, imgData, channel, 9, -1)));
             }
-        }
-
-        //заполняем края (4 краевых пикселя)
-        int current = (top * imgData.w + left) * imgData.compPerPixel  + channel;
-        imgData.pixels[current] = fmax(0, fmin(255, 10 * nPixels[current] - sum2_2(nPixels, top, left, imgData, channel)));
-        current = ((bottom - 1) * imgData.w + left) * imgData.compPerPixel  + channel;
-        imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - sum2_2(nPixels, bottom - 2, left, imgData, channel)));
-        current = (top * imgData.w + right - 1) * imgData.compPerPixel  + channel;
-        imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - sum2_2(nPixels, top, right - 2, imgData, channel)));
-        current = ((bottom - 1) * imgData.w + right - 1) * imgData.compPerPixel  + channel;
-        imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - sum2_2(nPixels, bottom - 2, right - 2, imgData, channel)));
-
-        //верхняя и нижняя полоса
-        for (int j = left + 1; j < right - 1; j++){
-            current = (top * imgData.w + j) * imgData.compPerPixel  + channel;
-            imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - sum2_3(nPixels, top, j - 1, imgData, channel)));
-            //std::cout << int(nPixels[current]) << std::endl;
-            //std::cout << sum2_3(nPixels, top, j - 1, imgData, channel) << std::endl;
-            //std::cout << int(imgData.pixels[current]) << std::endl;
-            current = ((bottom - 1) * imgData.w + j) * imgData.compPerPixel  + channel;
-            imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - sum2_3(nPixels, bottom - 2, j - 1, imgData, channel)));
-        }
-        //левая и правая полоса
-        for (int i = top + 1; i < bottom - 1; i++ ) {
-            current = (i * imgData.w + left) * imgData.compPerPixel  + channel;
-            //точно верно
-            imgData.pixels[current] = fmax(0, fmin(255,10 * nPixels[current] - sum3_2(nPixels, i - 1, left, imgData, channel)));
-            current = (i * imgData.w + right - 1) * imgData.compPerPixel  + channel;
-            imgData.pixels[current] = fmax(0, fmin(255, 10 * nPixels[current] - sum3_2(nPixels, i - 1, right - 2, imgData, channel)));
         }
     }
     delete[] nPixels;
