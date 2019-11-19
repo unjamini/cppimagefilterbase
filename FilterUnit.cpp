@@ -91,10 +91,10 @@ void BlurFilter::applyFilter(image_data& imgData)
 }
 
 
-void ThresProcess(Zone& zone, int x, int y, image_data& imgData, int kern_size = 5)
+void ThresProcess(Zone& zone, int x, int y, image_data& imgData, stbi_uc const* pixels, int kern_size = 5)
 {
     std::vector<stbi_uc> pixel_v;
-    stbi_uc* pixels = imgData.pixels;
+    stbi_uc* pxlNew = imgData.pixels;
     int border = kern_size / 2;
     for (int i = x - border; i <= x + border; i++) {
         for (int j = y - border; j <= y + border; j++) {
@@ -102,13 +102,10 @@ void ThresProcess(Zone& zone, int x, int y, image_data& imgData, int kern_size =
                 pixel_v.push_back(pixels[(i * imgData.w + j) * imgData.compPerPixel]);
         }
     }
-    std::sort(pixel_v.begin(), pixel_v.end(), [](const stbi_uc a, const stbi_uc b) -> bool
-    {
-        return a < b;
-    });
+    std::sort(pixel_v.begin(), pixel_v.end());
     int med = pixel_v[pixel_v.size() / 2];
-    if (med >= pixels[(x * imgData.w + y) * imgData.compPerPixel]) {
-        pixels[(x * imgData.w + y) * imgData.compPerPixel + 1] = pixels[(x * imgData.w + y) * imgData.compPerPixel + 2] = pixels[(x * imgData.w + y) * imgData.compPerPixel] = 0;
+    if (med > pixels[(x * imgData.w + y) * imgData.compPerPixel]) {
+        pxlNew[(x * imgData.w + y) * imgData.compPerPixel + 1] = pxlNew[(x * imgData.w + y) * imgData.compPerPixel + 2] = pxlNew[(x * imgData.w + y) * imgData.compPerPixel] = 0;
     }
 }
 
@@ -118,11 +115,14 @@ void ThresholdFilter::applyFilter(image_data& imgData)
 {
     Zone zone = RecountZone(top_p, bottom_p, left_p, right_p, imgData);
     BW(imgData, zone.top, zone.bottom, zone.left, zone.right);
+    auto* nPixels = new stbi_uc[imgData.h * imgData.w * imgData.compPerPixel];
+    memcpy(nPixels, imgData.pixels, imgData.h * imgData.w * imgData.compPerPixel);
     for (int i = zone.top; i < zone.bottom; ++i) {
         for (int j = zone.left; j < zone.right; ++j) {
-            ThresProcess(zone, i, j, imgData);
+            ThresProcess(zone, i, j, imgData, nPixels);
         }
     }
+    delete[] nPixels;
 }
 
 
